@@ -1,0 +1,5 @@
+nl/hva/fysfrontend/service/LoginService.class
+nl/hva/fysfrontend/service/LoginServiceImpl.class
+nl/hva/fysfrontend/model/User.class
+nl/hva/fysfrontend/dao/UserDao.class
+nl/hva/fysfrontend/servlet/LoginServlet.class
