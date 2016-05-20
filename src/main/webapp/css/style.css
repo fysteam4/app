@@ -43,7 +43,9 @@ p {
 	color: white;
 	font-weight: 400;
 	letter-spacing: 1px;
-	font-size: 1.4em;
+	font-size: 1.0em;
+	padding-left:10px;
+	padding-right:10px;
 }
 
 .box-header p {
