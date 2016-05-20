@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Fasten Your Seatbelts</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+
+<!-- Google pretty Fonts -->
+<link
+	href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900'
+	rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet"
+	href="webjars/dojo/1.10.4/dijit/themes/claro/claro.css" /> 
+<script>dojoConfig = {parseOnLoad: true}</script>
+<script src="webjars/dojo/1.10.4/dojo/dojo.js" data-dojo-config="async: true"></script>
+</head>
+
+<body class="size-1140 cdc-background-img claro">
+	<!-- TOP NAV WITH LOGO -->
+	<div class="container">
+		<div class="top">
+			<h1 id="title" class="hidden">
+				<span id="logo"> <span>Fasten your</span> seatbelts
+				</span>
+			</h1>
+		</div>
+		<div data-dojo-type="dijit/form/Form" id="register_form"
+			data-dojo-id="register_form" class="login-box animated fadeInUp">
+			<div class="box-header">
+				<h2>Vlucht zoeken</h2>
+					<p>Naar welke vlucht bent u op zoek?</p>
+			</div>
+			<label for="van">Van</label><br /> 
+			<select id="van" name="van" >
+				  <option value="AMS">Amsterdam</option>
+				  <option value=""></option>
+				  <option value=""></option>
+				  <option value=""></option>
+				  <option value=""></option>
+			</select> <br /> 
+			<label for="naar">Naar</label><br /> 
+			<select id="van" name="van" > 				  
+				  <option value="AMS">Amsterdam</option>
+				  <option value=""></option>
+				  <option value=""></option>
+				  <option value=""></option>
+				  <option value=""></option>
+			</select><br /> 
+			<label for="heenreis">Heenreis</label><br /> 
+			<div id="spin1" data-dojo-type="dojox/mobile/SpinWheelDatePicker"></div>
+			<label for="terugreis">Terugreis</label> <br /> 
+			<input type="date" id="terugreis" name="terugreis" /> 
+			<br /> <label for="aantal">Aantal passagiers</label> <br />
+			<input type="number" id="aantal" name="aantal" /> <br />
+			<button id="submit_button" type="submit">Zoek</button>
+		</div>
+	</div>
+</body>
+
+<script>
+require([
+         "dojo/_base/window",
+         "dojo/ready",
+         "dojox/mobile/SpinWheelDatePicker",
+         "dojox/mobile/parser"
+     ], function(win, ready, SpinWheelDatePicker){
+         ready(function(){
+           var widget = new SpinWheelDatePicker({id:"spin1"});
+           win.body().appendChild(widget.domNode);
+           widget.startup();
+         });
+     });
+/*
+require(["dojo/dom", 
+         "dojo/request", 
+         "dojo/json", 
+         "dojo/dom-form", 
+         "dojo/on",
+         ],
+function(dom, request, JSON, domForm, on) {
+			on(dom.byId("submit_button"), "click", function(){
+			console.log("Dojo Post");
+			var van = dom.byId("van");
+			var naar = dom.byId("naar");
+			var heenreis = dom.byId("heenreis");
+			var terugreis = dom.byId("terugreis");
+			var aantal = dom.byId("aantal");
+    		var url = "loginservlet";
+    	request.post(url, {
+        	data: "{ van: "+van.value+", naar: "+naar.value+", heenreis: "+heenreis.value+", terugreis: "+terugreis.value+", aantal: "+aantal.value+" }",
+            handleAs: "json",
+            headers:{
+                "Content-Type": "application/json"
+            },
+            timeout: 2000
+		}).then(function(response) {
+    	console.log(response)
+    	if(response != "" && response.isLoggedIn){
+    		window.location = "http://nu.nl";
+    	}
+		}, function(error) {
+    	console.log(error);
+	 });
+});
+}); */
+
+
+
+</script>
+</html>
+

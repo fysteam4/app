@@ -39,6 +39,17 @@ h2 {
 	line-height: 2.8em;
 }
 
+p {
+	color: white;
+	font-weight: 400;
+	letter-spacing: 1px;
+	font-size: 1.4em;
+}
+
+.box-header p {
+	padding-bottom: 25px;
+}
+
 a {
 	text-decoration: none;
 	color: #666;
@@ -49,12 +60,18 @@ a:hover {
 }
 
 p.small {
+	color: #666;
 	font-size: 0.8em;
 	margin: 20px 0 0;
 }
 
 
 /* Layout */
+#login_error{
+	padding:10px;
+	color:red;
+	display:none;
+}
 .container {
 	margin: 0;
 }
