@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
-import nl.hva.fysfrontend.model.User;
+import nl.hva.fysfrontend.model.Person;
 import nl.hva.fysfrontend.service.LoginService;
 import nl.hva.fysfrontend.service.LoginServiceImpl;
 
@@ -24,9 +24,9 @@ public class LoginServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public LoginServlet() {
+	public LoginServlet(LoginService loginService) {
 		super();
-		loginService = new LoginServiceImpl();
+		this.loginService = loginService;
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -57,12 +57,12 @@ public class LoginServlet extends HttpServlet {
 				sb.append(s);
 			}
 			
-			User user = g.fromJson(sb.toString(), User.class);
+			Person person = g.fromJson(sb.toString(), Person.class);
 			
-			User resultUser = loginService.login(user);
+			Person personFound = loginService.login(person);
 			
 			PrintWriter out = response.getWriter();
-			out.println(g.toJson(resultUser));
+			out.println(g.toJson(personFound));
 		} catch (Exception e) {
 			
 		}
