@@ -1,1 +1,9 @@
 target/
+
+.project
+
+.classes
+
+.settings/
+
+.tern-project
